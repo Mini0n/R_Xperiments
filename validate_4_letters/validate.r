@@ -9,6 +9,7 @@
 allowed_attempts <- 3
 valid_password <- "TeSt"
 # Message constants
+instructions_msg <- "Hello.\nYou have 3 attemps.\n\n"
 ask_pass_msg <- "Please type password:"
 ok_pass_msg <- "Accepted Password! :"
 bad_pass_msg <- "Incorrect Password :"
@@ -35,14 +36,14 @@ check_password <- function(current_password) {
 }
 
 print_program_result <- function(success) {
-  icon <- "[ X ]"
+  icon <- "\n\n[ X ]"
   message <- bad_exec
   if (success) {
-    icon <- "[ O ]"
+    icon <- "\n\n[ O ]"
     message <- good_exec
   }
 
-  print(paste(icon, message))
+  cat(icon, message)
 }
 
 ask_password <- function() {
@@ -53,6 +54,8 @@ ask_password <- function() {
 }
 
 run_program <- function() {
+  cat(instructions_msg) # cat(<string>) allows to use line-breaks
+
   i <- 0
   success <- FALSE
 
